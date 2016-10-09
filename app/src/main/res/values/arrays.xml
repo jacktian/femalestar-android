@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_tab_titles">
+        <item>@string/main_tab_title_menstruation_assistant</item>
+        <item>@string/main_tab_title_health_assistant</item>
+        <item>@string/main_tab_title_storage_assistant</item>
+    </string-array>
+</resources>
