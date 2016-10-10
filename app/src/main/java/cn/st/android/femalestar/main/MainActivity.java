@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import cn.st.android.femalestar.R;
+import cn.st.android.femalestar.menstruation.search.SearchMenstruationFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
             private String[] titles=getResources().getStringArray(R.array.main_tab_titles);
             @Override
             public Fragment getItem(int position) {
+                if(position==0){
+                    return new SearchMenstruationFragment();
+                }
                 return new Fragment();
             }
 
