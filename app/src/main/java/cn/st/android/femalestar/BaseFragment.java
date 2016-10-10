@@ -9,18 +9,19 @@ import android.view.View;
  * Created by coolearth on 16-10-10.
  */
 
-public abstract class BaseFragment<T> extends Fragment {
-    protected T presenter;
+public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
+    protected P presenter;
 
-    public abstract T createPresenter();
+    public abstract P createPresenter();
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         presenter=createPresenter();
+        presenter.setView(this);
     }
 
-    public T getPresenter(){
+    public P getPresenter(){
         return presenter;
     }
 }

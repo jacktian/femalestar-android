@@ -12,5 +12,6 @@ public class SearchMenstruationPresenter implements SearchMenstruationContract.P
     @Override
     public void setView(SearchMenstruationContract.View view) {
         mView= Preconditions.checkNotNull(view);
+
     }
 }

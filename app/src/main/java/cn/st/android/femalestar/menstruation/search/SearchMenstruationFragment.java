@@ -15,9 +15,6 @@ import cn.st.android.femalestar.R;
  */
 public class SearchMenstruationFragment extends BaseFragment<SearchMenstruationContract.Presenter> implements SearchMenstruationContract.View{
 
-    private SearchMenstruationContract.Presenter mPresenter;
-
-
     public SearchMenstruationFragment() {
         // Required empty public constructor
 
