@@ -6,7 +6,7 @@ import java.util.List;
 
 import cn.st.android.femalestar.BasePresenter;
 import cn.st.android.femalestar.BaseView;
-import cn.st.android.femalestar.data.Products;
+import cn.st.android.femalestar.data.Product;
 
 /**
  * Created by coolearth on 16-10-10.
@@ -20,9 +20,9 @@ public interface SearchProductContract {
 
         void showAdd();
 
-        void showProducts(List<Products> productsList);
+        void showProducts(List<Product> productList);
 
-        void showSetAlarm(Products products);
+        void showSetAlarm(Product product);
     }
 
     interface Presenter extends BasePresenter<View>{
@@ -33,6 +33,6 @@ public interface SearchProductContract {
 
         void loadProducts();
 
-        void showSetAlarm(Products products);
+        void showSetAlarm(Product product);
     }
 }

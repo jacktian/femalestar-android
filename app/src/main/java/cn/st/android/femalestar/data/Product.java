@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by coolearth on 16-10-11.
  */
 
-public class Products {
+public class Product {
     private String name;
     private String code;
     private Date pDate;
@@ -42,7 +42,7 @@ public class Products {
         this.eDate = eDate;
     }
 
-    public Products(String name, String code, Date pDate, Date eDate) {
+    public Product(String name, String code, Date pDate, Date eDate) {
         this.name = name;
         this.code = code;
         this.pDate = pDate;

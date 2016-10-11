@@ -10,7 +10,7 @@ import com.google.common.collect.Lists;
 import java.util.Date;
 import java.util.List;
 
-import cn.st.android.femalestar.data.Products;
+import cn.st.android.femalestar.data.Product;
 
 /**
  * Created by coolearth on 16-10-10.
@@ -46,19 +46,19 @@ public class SearchProductPresenter implements SearchProductContract.Presenter{
     @Override
     public void loadProducts() {
         Date now=new Date();
-        List<Products> productsList= Lists.newArrayList();
-        productsList.add(new Products("嘻嘻嘻","11222222222",now,now ));
-        productsList.add(new Products("嘻嘻嘻","11222222222",now,now ));
-        productsList.add(new Products("嘻嘻嘻","11222222222",now,now ));
-        productsList.add(new Products("嘻嘻嘻","11222222222",now,now ));
-        productsList.add(new Products("嘻嘻嘻","11222222222",now,now ));
-        productsList.add(new Products("嘻嘻嘻","11222222222",now,now ));
-        mView.showProducts(productsList);
+        List<Product> productList = Lists.newArrayList();
+        productList.add(new Product("嘻嘻嘻","11222222222",now,now ));
+        productList.add(new Product("嘻嘻嘻","11222222222",now,now ));
+        productList.add(new Product("嘻嘻嘻","11222222222",now,now ));
+        productList.add(new Product("嘻嘻嘻","11222222222",now,now ));
+        productList.add(new Product("嘻嘻嘻","11222222222",now,now ));
+        productList.add(new Product("嘻嘻嘻","11222222222",now,now ));
+        mView.showProducts(productList);
     }
 
     @Override
-    public void showSetAlarm(@NonNull Products products) {
-        Preconditions.checkNotNull(products);
-        mView.showSetAlarm(products);
+    public void showSetAlarm(@NonNull Product product) {
+        Preconditions.checkNotNull(product);
+        mView.showSetAlarm(product);
     }
 }

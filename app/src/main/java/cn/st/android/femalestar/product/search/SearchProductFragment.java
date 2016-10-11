@@ -26,7 +26,7 @@ import java.util.List;
 
 import cn.st.android.femalestar.BaseFragment;
 import cn.st.android.femalestar.R;
-import cn.st.android.femalestar.data.Products;
+import cn.st.android.femalestar.data.Product;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,8 +47,8 @@ public class SearchProductFragment extends BaseFragment<SearchProductContract.Pr
 
     private ProductItemListener productItemListener=new ProductItemListener() {
         @Override
-        public void onSetAlarmClick(Products products) {
-            getPresenter().showSetAlarm(products);
+        public void onSetAlarmClick(Product product) {
+            getPresenter().showSetAlarm(product);
         }
     };
 
@@ -58,7 +58,7 @@ public class SearchProductFragment extends BaseFragment<SearchProductContract.Pr
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mProductAdapter=new ProductAdapter(new ArrayList<Products>(0),productItemListener);
+        mProductAdapter=new ProductAdapter(new ArrayList<Product>(0),productItemListener);
     }
 
     @Override
@@ -135,33 +135,33 @@ public class SearchProductFragment extends BaseFragment<SearchProductContract.Pr
     }
 
     @Override
-    public void showProducts(List<Products> productsList) {
-        mProductAdapter.replaceData(productsList);
+    public void showProducts(List<Product> productList) {
+        mProductAdapter.replaceData(productList);
     }
 
     @Override
-    public void showSetAlarm(Products products) {
-        Snackbar.make(mClayout.getRootView(),products.getName(),Snackbar.LENGTH_SHORT).show();
+    public void showSetAlarm(Product product) {
+        Snackbar.make(mClayout.getRootView(), product.getName(),Snackbar.LENGTH_SHORT).show();
     }
 
     class ProductAdapter extends BaseAdapter{
-        private List<Products> mProductsList;
+        private List<Product> mProductList;
 
         private ProductItemListener mProductItemListener;
 
-        public ProductAdapter(List<Products> productsList,ProductItemListener productItemListener){
-            mProductsList= Preconditions.checkNotNull(productsList);
+        public ProductAdapter(List<Product> productList, ProductItemListener productItemListener){
+            mProductList = Preconditions.checkNotNull(productList);
             mProductItemListener=productItemListener;
         }
 
         @Override
         public int getCount() {
-            return mProductsList.size();
+            return mProductList.size();
         }
 
         @Override
-        public Products getItem(int i) {
-            return mProductsList.get(i);
+        public Product getItem(int i) {
+            return mProductList.get(i);
         }
 
         @Override
@@ -176,34 +176,34 @@ public class SearchProductFragment extends BaseFragment<SearchProductContract.Pr
                 LayoutInflater inflater=LayoutInflater.from(viewGroup.getContext());
                 rowView=inflater.inflate(R.layout.product_item,viewGroup,false);
             }
-            final Products products=getItem(i);
+            final Product product =getItem(i);
             TextView mName = (TextView) rowView.findViewById(R.id.txt_name);
             TextView mCode = (TextView) rowView.findViewById(R.id.txt_code);
             TextView mPdate = (TextView) rowView.findViewById(R.id.txt_pdate);
             TextView mEdate = (TextView) rowView.findViewById(R.id.txt_edate);
             ImageView mAlarm= (ImageView) rowView.findViewById(R.id.img_alarm);
-            mName.setText(products.getName());
-            mCode.setText(products.getCode());
-            mPdate.setText(products.getpDateStr());
-            mEdate.setText(products.geteDateStr());
+            mName.setText(product.getName());
+            mCode.setText(product.getCode());
+            mPdate.setText(product.getpDateStr());
+            mEdate.setText(product.geteDateStr());
             mAlarm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mProductItemListener.onSetAlarmClick(products);
+                    mProductItemListener.onSetAlarmClick(product);
                 }
             });
             return rowView;
         }
 
-        public void replaceData(List<Products> productsList){
-            this.mProductsList= Preconditions.checkNotNull(productsList);
+        public void replaceData(List<Product> productList){
+            this.mProductList = Preconditions.checkNotNull(productList);
             notifyDataSetChanged();
         }
     }
 
     interface ProductItemListener {
 
-        void onSetAlarmClick(Products products);
+        void onSetAlarmClick(Product product);
 
     }
 }
