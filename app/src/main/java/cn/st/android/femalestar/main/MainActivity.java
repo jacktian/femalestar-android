@@ -18,6 +18,7 @@ import com.google.common.base.Preconditions;
 
 import cn.st.android.femalestar.R;
 import cn.st.android.femalestar.menstruation.search.SearchMenstruationFragment;
+import cn.st.android.femalestar.product.search.SearchProductFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,10 +89,20 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position==0){
-                return new SearchMenstruationFragment();
+            switch (position){
+                case 0:{
+                    return new SearchMenstruationFragment();
+                }
+                case 1:{
+                    return new SearchProductFragment();
+                }
+                case 2:{
+                    return new Fragment();
+                }
+                default:{
+                    return new Fragment();
+                }
             }
-            return new Fragment();
         }
 
         @Override

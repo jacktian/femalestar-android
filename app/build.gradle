@@ -30,7 +30,8 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
+    compile project(":zxing")
 
     testCompile "junit:junit:$rootProject.ext.junitVersion"
-    compile 'com.android.support:support-v4:24.2.1'
+
 }
